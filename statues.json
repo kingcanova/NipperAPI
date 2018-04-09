@@ -1,0 +1,122 @@
+[
+  {
+    "name": "Second Chances",
+    "artist": "Bob Anderson",
+    "address": "3 Oakland Ave",
+    "path": "/assets/second_chances.jpg"
+  },
+  {
+    "name": "Mark",
+    "artist": "Sarah Bassett & Hannah McGrath",
+    "address": "25 Chapel St",
+    "path": "/assets/mark.jpg"
+  },
+  {
+    "name": "Victor",
+    "artist": "Matthew Bartik",
+    "address": "222 Madison Ave",
+    "path": "/assets/victor.jpg"
+  },
+  {
+    "name": "City Lines",
+    "artist": "Mitchell Biernacki",
+    "address": "353 Broadway",
+    "path":"/assets/city_lines.jpg"
+  },
+  {
+    "name": "Bright Side",
+    "artist": "Melanie Lucia Clarke",
+    "address": "55 Eagle St",
+    "path": "/assets/bright_side.jpg"
+  },
+  {
+    "name": "Lost and Hound",
+    "artist": "Kit Collins",
+    "address": "111 N. Pearl St",
+    "path": "/assets/lost_and_hound.jpg"
+  },
+  {
+    "name": "Almos",
+    "artist": "Diane Cubit",
+    "address": "51 S. Pearl St",
+    "path": "/assets/almos.jpg"
+  },
+  {
+    "name": "Explore",
+    "artist": "Kristen Dahms",
+    "address": "74 State St",
+    "path": "/assets/explore.jpg"
+  },
+  {
+    "name": "Natural Selection",
+    "artist": "Sandra Dwileski",
+    "address": "55 Eagle St",
+    "path": "/assets/natural_selection.jpg"
+  },
+  {
+    "name": "New Neighbor Ned",
+    "artist": "Tim Fealey",
+    "address": "135 S. Pearl St",
+    "path": "/assets/new_neighbor_ned.jpg"
+  },
+  {
+    "name": "Cleeo of Clee Park",
+    "artist": "First Church in Albany",
+    "address": "110 N. Pearl St",
+    "path": "/assets/cleeo_park.jpg"
+  },
+  {
+    "name": "Bandit",
+    "artist": "John Gaudet",
+    "address": "144 State St",
+    "path": "/assets/bandit.jpg"
+  },
+  {
+    "name": "On Top of Albany",
+    "artist": "Gretchen Geser",
+    "address": "370 Broadway",
+    "path": "/assets/top_of_albany.jpg"
+  },
+  {
+    "name": "Frida Fido",
+    "artist": "Betsy Gorman",
+    "address": "353 Broadway",
+    "path": "/assets/frida_fido.jpg"
+  },
+  {
+    "name": "Bowie",
+    "artist": "Ali Herrmann",
+    "address": "19 Clinton Ave",
+    "path": "/assets/bowie.jpg"
+  },
+  {
+    "name": "Een grote delft blauwe doggo",
+    "artist": "Jessica Mansmith",
+    "address": "25 Quakenbush Sq",
+    "path": "/assets/doggo.jpg"
+  },
+  {
+    "name": "Tulip Festival",
+    "artist": "Myers Middle School",
+    "address": "153 S. Pearl St",
+    "path": "/assets/tulip_fest.jpg"
+  },
+  {
+    "name": "Metal Benny",
+    "artist": "Scotty Somerville",
+    "address": "51 S. Pearl St",
+    "path": "/assets/metal_benny.jpg"
+  },
+  {
+    "name": "Scooby Doodle",
+    "artist": "Upside Collective",
+    "address": "24 Eagle St",
+    "path": "/assets/scooby.jpg"
+  },
+  {
+    "name": "Steampunk Nipper",
+    "artist": "Elaine Wilson",
+    "address": "80 State St",
+    "path": "/assets/steampunk.jpg"
+  }
+]
