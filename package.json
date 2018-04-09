@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/kingcanova/NipperAPI/issues"
   },
-  "homepage": "https://github.com/kingcanova/NipperAPI#readme"
+  "homepage": "https://github.com/kingcanova/NipperAPI#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
