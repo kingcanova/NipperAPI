@@ -3,14 +3,21 @@ var express = require('express');
 var app = express();
 var server = require('http').Server(app);
 
+var statues = require('./statueController.js');
+
 //Give the paths to the objects because they will not be static depending on where they are hosted
 app.use('/css',express.static(__dirname + '/css'));
 app.use('/js',express.static(__dirname + '/js'));
 app.use('/assets',express.static(__dirname + '/assets'));
 
 //send the index.html as the root of the webpage
-app.get('/',function(req,res){
+app.get('/old',function(req,res){
     res.sendFile(__dirname+'/index.html');
+});
+
+app.get('/',function(req,res){
+    var table = statues.createTable();
+    res.send(table);
 });
 
 app.get('/picture',function(req,res){

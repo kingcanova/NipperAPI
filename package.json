@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/kingcanova/NipperAPI#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "jsonpath": "^1.0.0"
   }
 }
