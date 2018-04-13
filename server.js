@@ -11,13 +11,19 @@ app.use('/js',express.static(__dirname + '/js'));
 app.use('/assets',express.static(__dirname + '/assets'));
 
 //send the index.html as the root of the webpage
-app.get('/old',function(req,res){
-    res.sendFile(__dirname+'/index.html');
+app.get('/',function(req,res){
+    var webpage = statues.createHTMLBadly();
+    webpage += statues.createTable('');
+    webpage += statues.finishHTMLBadly();
+    res.send(webpage);
+    //res.sendFile(__dirname+'/index.html');
 });
 
-app.get('/',function(req,res){
-    var table = statues.createTable();
-    res.send(table);
+app.get('/data/:id',function(req,res){
+    var webpage = statues.createHTMLBadly();
+    webpage += statues.createTable(req.params.id);
+    webpage += statues.finishHTMLBadly();
+    res.send(webpage);
 });
 
 app.get('/picture',function(req,res){
