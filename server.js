@@ -9,19 +9,30 @@ var statues = require('./statueController.js');
 app.use('/css',express.static(__dirname + '/css'));
 app.use('/js',express.static(__dirname + '/js'));
 app.use('/assets',express.static(__dirname + '/assets'));
+app.use('/node_modules',express.static(__dirname + '/node_modules'));
 
 //send the index.html as the root of the webpage
 app.get('/',function(req,res){
     var webpage = statues.createHTMLBadly();
     webpage += statues.createTable('');
+    webpage += statues.createAngular();
     webpage += statues.finishHTMLBadly();
     res.send(webpage);
     //res.sendFile(__dirname+'/index.html');
 });
 
+app.get('/data',function(req,res){
+    var webpage = statues.createHTMLBadly();
+    webpage += statues.createTable('');
+    webpage += statues.createAngular();
+    webpage += statues.finishHTMLBadly();
+    res.send(webpage);
+});
+
 app.get('/data/:id',function(req,res){
     var webpage = statues.createHTMLBadly();
     webpage += statues.createTable(req.params.id);
+    webpage += statues.createAngular();
     webpage += statues.finishHTMLBadly();
     res.send(webpage);
 });
