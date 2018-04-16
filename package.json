@@ -26,6 +26,7 @@
   "homepage": "https://github.com/kingcanova/NipperAPI#readme",
   "dependencies": {
     "angular": "^1.6.9",
+    "angular-resource": "^1.6.9",
     "express": "^4.16.3",
     "fuse.js": "^3.2.0",
     "jsonpath": "^1.0.0",

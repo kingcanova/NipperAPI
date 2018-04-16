@@ -1,12 +1,110 @@
 <!DOCTYPE html>
+<!--This is the main webpage that displays the collection view, allows you to sort by name, artist and location, and has a search bar for searching for a statue -->
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Nipper API</title>
-</head>
-<body>
-    <div id='main'>
-        <p>Testing testing</p>
-    </div>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Nipper API</title>
+        <link rel=stylesheet href=/css/style.css>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src = "/node_modules/angular/angular.js"></script>
+        <script src="/node_modules/angular-resource/angular-resource.js"></script>
+    </head>
+    <body>
+        <div id="main">
+            <script>
+                //This script tag contains all of my angular code and methods to create the collection view
+                var app = angular.module('nipperApp', []);
+                
+                app.controller("nipperController",function($scope,$http,$window){
+                    $scope.orderByField = 'name';
+                    $scope.reverseSort = false;
+                    //This http.get method is what quiries the API and returns all the data needed
+                    $http.get('/test/allData').then(function successCallback(response){
+                        $scope.info = response.data;
+                    },
+                    function errorCallback(response) {
+                        alert(response);
+                    });
+                        
+                        
+                        
+                    $scope.searchTerm = "";
+                    
+                    //This function is used so when a user hits enter when searching they go to the correct path
+                    $scope.searchName = function(){
+                        $window.location.href = '/data/' + $scope.searchTerm;
+                    }
+                });
+                
+                //This is a function that allows for sorting the table of statues and hiding entries in the table when people are searching in the search bar
+                function updateTable() {
+                // Declare variables 
+                    var input, filter, table, tr, td, i;
+                    input = document.getElementById("myInput");
+                    filter = input.value.toUpperCase();
+                    table = document.getElementById("myTable");
+                    tr = table.getElementsByTagName("tr");
+
+                // Loop through all table rows, and hide those who don't match the search query so far (THIS IS NOT THE FUZZY SEARCH PART)
+                    for (i = 0; i < tr.length; i++) {
+                        td = tr[i].getElementsByTagName("td")[0];
+                        if (td){
+                            if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                                tr[i].style.display = "";
+                            } 
+                            else {
+                                tr[i].style.display = "none";
+                            }
+                        } 
+                    }
+                }
+            </script>
+            <!--This is the actual angular HTML code that reacts to the methods above -->
+            <div ng-app= "nipperApp" ng-controller = "nipperController">
+                <form ng-Submit = searchName() class="box"><!--This is the search box -->
+                    <input type="text" id="myInput" onkeyup="updateTable()" placeholder="Search for names.." ng-model="searchTerm">
+                    <a ng-href = "/data/{{searchTerm}}" class="btn btn-success">Search</a>
+                    <span class="label">Ordered By: {{orderByField}}, Reverse Sort:{{reverseSort}}</span>
+                </form>
+                <br><br>
+                <!--This is the table that displays all of the statues and allows you to order them from A-Z or Z-A, an icon will appear when they are ordered/filtered -->
+                <table id = "myTable" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>
+                                <a href="#" ng-click="orderByField='name'; reverseSort = !reverseSort">
+                                Name: <span ng-show="orderByField == 'name'">
+                                    <span ng-show="!reverseSort" class="glyphicon glyphicon-sort-by-alphabet"></span>
+                                    <span ng-show="reverseSort" class= "glyphicon glyphicon-sort-by-alphabet-alt"></span>
+                                    </span>
+                                </a>
+                            </th>
+                            <th>
+                                <a href="#" ng-click="orderByField='artist'; reverseSort = !reverseSort">
+                                Artist: <span ng-show="orderByField == 'artist'"><span ng-show="!reverseSort" class="glyphicon glyphicon-sort-by-alphabet"></span><span ng-show="reverseSort" class= "glyphicon glyphicon-sort-by-alphabet-alt"></span></span>
+                                </a>
+                            </th>
+                            <th>
+                                <a href="#" ng-click="orderByField='address'; reverseSort = !reverseSort">
+                                Address: <span ng-show="orderByField == 'address'"><span ng-show="!reverseSort" class="glyphicon glyphicon-sort-by-alphabet"></span><span ng-show="reverseSort" class= "glyphicon glyphicon-sort-by-alphabet-alt"></span></span>
+                                </a>
+                            </th>
+                            <th>
+                                Picture:
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <!--All of these td's are surrounded by an <a> tag so if clicked they bring you to the specific single statue view -->
+                    <tr ng-repeat="data in info|orderBy:orderByField:reverseSort">
+                        <td><a href="/data/{{data.name}}">{{data.name}}</a></td>
+                        <td><a href="/data/{{data.name}}">{{data.artist}}</a></td>
+                        <td><a href="/data/{{data.name}}">{{data.address}}</a></td>
+                        <td><a href="/data/{{data.name}}"><img src ={{data.path}} height=100px width=100px></a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
 </html>

@@ -1,3 +1,4 @@
+/*This is the css code used for the project, I know it isnt pretty but the most important thing is that it works!*/
 table {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
@@ -19,4 +20,43 @@ th {
     text-align: left;
     background-color: #4CAF50;
     color: white;
+}
+img {
+    border-radius: 8px;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+/* Container holding the image and the text */
+.container {
+    position: relative;
+}
+
+/* Bottom right text */
+.text-block {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: black;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.imgbox {
+   display: grid;
+   height: 100%;
+  }
+  .center-fit {
+   max-width: 100%;
+   max-height: 100vh;
+   margin: auto;
+  }
+.box{
+    padding-top: 40px;
+    width: 100%;
+    text-align:center;
 }
