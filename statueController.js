@@ -14,7 +14,7 @@ var options = {
 
 //Here are all of the functions that can be called by server.js to build a webpage based on the path or api endpoint that a user has entered
 module.exports = {
-    //This is an old method when I was testing things out and building a table the wrong way
+    //This is an OLD method when I was testing things out and building a table the wrong way
     createTable: function(searchTerm){
         var statues = jp.query(data,'$.*');
         var htmlTable = '<table>';
